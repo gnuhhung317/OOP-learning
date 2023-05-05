@@ -69,7 +69,7 @@ class library:
                 dem = 0
         if dem == 1:
             print("Không có sách với tiêu đề như vây.")
-            print("Tìm kiếm sách có khả năng..")
+            print("Tìm kiếm sách có khả năng...")
             classname.search_book(book_name)
 
 
