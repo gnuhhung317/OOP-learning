@@ -52,7 +52,7 @@ class library:
             print(f"{i}. {book.title} của {book.author}: {book.quantity} quyển")
             i+=1
     def display_available_book(self):
-        available_book=[book for book in self.books if book.checkout==False]
+        available_book=[book for book in self.books if book.quantity-book.checkoutbook>0]
         if len(available_book)==0:
             print("Không có sách nào có sẵn!")
         else:
@@ -102,8 +102,10 @@ while True:
     time.sleep(0.1)
     print("9. hiển thị sách khả dụng")
     time.sleep(0.1)
-    print("10. thoát ra")
+    print("10. lịch sử mượn trả")
     time.sleep(0.1)
+    print("11. thoát ra")
+
     n=int(input("Nhập vào lựa chọn của bạn(1-10): "))
     dem=1
     while n<1 or n>10:
@@ -145,6 +147,9 @@ while True:
         for book in Mylib.books:
             if book_name.lower() == book.title.lower():
                 book.check_out()
+                f=open("checkout_history.txt",'a',encoding="utf-8")
+                f.write(f"Đã mượn {book.title}\n")
+                f.close()
                 dem = 0
         if dem == 1:
             print("Không có sách với tiêu đề như vây.")
@@ -157,6 +162,9 @@ while True:
         for book in Mylib.books:
             if book_name.lower() == book.title.lower():
                 book.return_book()
+                f.open("checkout_history.txt",'a',encoding="utf-8")
+                f.write(f"Đã trả {book.title}")
+                f.close()
                 dem = 0
         if dem == 1:
             print("Không có sách với tiêu đề như vây.")
@@ -201,6 +209,19 @@ while True:
         Mylib.display_available_book()
         time.sleep(5)
     if n==10:
+            f=open("checkout_history.txt",'r',encoding="utf-8")
+            file=f.read()
+            file=file.split("\n")
+            dem=0
+            for i in file:
+                i=i.strip()
+                if len(i)>0:
+                    print(i)
+                    dem+=1
+            if dem==0:
+                print("Lịch sử trống")
+
+    if n==11:
         break
 print("Cảm ơn đã sử dụng dịch vụ!")
 
