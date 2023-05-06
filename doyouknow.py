@@ -2,25 +2,30 @@ import time
 import csv
 from random import randint
 class Book:
+    #initial book object
     def __init__(self,title,author,ibsn,quantity):
         self.title =title
         self.author = author
         self.ibsn = ibsn
         self.quantity=quantity
         self.checkoutbook=0
+    #check the information of the book:
     def infor(self):
         print("Tựa đề sách là",self.title,"của",self.author,"với số ibs là",self.ibsn)
+    #check if the information is available
     def is_available(self):
         if self.quantity-self.checkoutbookk>0:
             print(f"{self.title} có sẵn {self.quantity-self.checkoutbook}!")
         else:
             print(f"{self.title} không có sẵn!")
+    #permit user checkout book
     def check_out(self):
         if self.quantity-self.checkoutbook>0:
             print(f"{self.title} của bạn đây!")
             self.checkoutbook+=1
         else:
             print(f"{self.title} đã bị mượn hết!")
+    #permit user return book
     def return_book(self):
         if self.checkoutbook>0:
             print(f"{self.title} đã được trả!")
@@ -28,12 +33,16 @@ class Book:
         else:
             print(f"{self.title} chưa được mượn!")
 class library:
+    #initial library
     def __init__(self):
         self.books=[]
+    #add book to lib
     def add_book(self,book):
         self.books.append(book)
+    #remove book from lib
     def remove_book(self,book):
         self.books.remove(book)
+    #find book from lib (find book by title)
     def search_book(self,keyword=str):
         matched_book = [book for book in self.books if keyword.lower() in book.title.lower()]
         if len(matched_book)==0:
@@ -45,12 +54,13 @@ class library:
                 print(f"{i}. {book.title} của {book.author} với số ibs là {book.ibsn}: {book.quantity} quyển")
                 i+=1
         return matched_book
-
+    #show all book
     def display_book(self):
         i=1
         for book in self.books:
             print(f"{i}. {book.title} của {book.author}: {book.quantity} quyển")
             i+=1
+    #show all available book
     def display_available_book(self):
         available_book=[book for book in self.books if book.quantity-book.checkoutbook>0]
         if len(available_book)==0:
@@ -60,6 +70,7 @@ class library:
             for book in available_book:
                 print(f"{i}. {book.title} của {book.author}: {book.quantity} quyển")
                 i += 1
+#make name book in good form
 def nice(book_name):
     return " ".join(book_name.split())
 
