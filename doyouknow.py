@@ -1,34 +1,36 @@
 import time
+import csv
+from random import randint
 class Book:
-    def __init__(self,title,author,ibsn):
+    def __init__(self,title,author,ibsn,quantity):
         self.title =title
         self.author = author
         self.ibsn = ibsn
-        self.checkout=False
+        self.quantity=quantity
+        self.checkoutbook=0
     def infor(self):
         print("Tựa đề sách là",self.title,"của",self.author,"với số ibs là",self.ibsn)
     def is_available(self):
-        if self.checkout:
-            print(f"{self.title} có sẵn!")
+        if self.quantity-self.checkoutbookk>0:
+            print(f"{self.title} có sẵn {self.quantity-self.checkoutbook}!")
         else:
             print(f"{self.title} không có sẵn!")
     def check_out(self):
-        if not self.checkout:
+        if self.quantity-self.checkoutbook>0:
             print(f"{self.title} của bạn đây!")
-            self.checkout=True
+            self.checkoutbook+=1
         else:
-            print(f"{self.title} đã bị mượn!")
+            print(f"{self.title} đã bị mượn hết!")
     def return_book(self):
-        if self.checkout:
+        if self.checkoutbook>0:
             print(f"{self.title} đã được trả!")
-            self.checkout= False
+            self.checkoutbook-=1
         else:
             print(f"{self.title} chưa được mượn!")
 class library:
     def __init__(self):
         self.books=[]
     def add_book(self,book):
-
         self.books.append(book)
     def remove_book(self,book):
         self.books.remove(book)
@@ -40,14 +42,14 @@ class library:
             print("Tìm được:")
             i=1
             for book in matched_book:
-                print(f"{i}. {book.title} của {book.author} với số ibs là {book.ibsn}")
+                print(f"{i}. {book.title} của {book.author} với số ibs là {book.ibsn}: {book.quantity} quyển")
                 i+=1
         return matched_book
 
     def display_book(self):
         i=1
         for book in self.books:
-            print(f"{i}. {book.title} by {book.author}")
+            print(f"{i}. {book.title} của {book.author}: {book.quantity} quyển")
             i+=1
     def display_available_book(self):
         available_book=[book for book in self.books if book.checkout==False]
@@ -56,55 +58,28 @@ class library:
         else:
             i=1
             for book in available_book:
-                print(f"{i}. {book.title} của {book.author}")
+                print(f"{i}. {book.title} của {book.author}: {book.quantity} quyển")
                 i += 1
-
-    def working(self, classname, func):
-        book_name = input("Nhập vào tên sách: ")
-        book_name = nice(book_name)
-        dem = 1
-        for book in classname.books:
-            if book_name.lower() == book.title.lower():
-                book.func()
-                dem = 0
-        if dem == 1:
-            print("Không có sách với tiêu đề như vây.")
-            print("Tìm kiếm sách có khả năng...")
-            classname.search_book(book_name)
-
-
-
 def nice(book_name):
     return " ".join(book_name.split())
 
 
 Mylib=library()
-book1 = Book("To Kill a Mockingbird", "Harper Lee", "9780061120084")
-book2 = Book("1984", "George Orwell", "9780451524935")
-book3 = Book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565")
-book4 = Book("One Hundred Years of Solitude", "Gabriel Garcia Marquez", "9780060883287")
-book5 = Book("Moby-Dick", "Herman Melville", "9780142437247")
-book6 = Book("The Catcher in the Rye", "J.D. Salinger", "9780316769488")
-book7 = Book("The Adventures of Huckleberry Finn", "Mark Twain", "9780486280615")
-book8 = Book("Pride and Prejudice", "Jane Austen", "9780141439518")
-book9 = Book("Brave New World", "Aldous Huxley", "9780060850524")
-book10 = Book("Animal Farm", "George Orwell", "9780141036137")
-book11 = Book("The Lord of the Rings", "J.R.R. Tolkien", "9780544003415")
-book12 = Book("The Hobbit", "J.R.R. Tolkien", "9780547928227")
-book13 = Book("The Chronicles of Narnia", "C.S. Lewis", "9780007100221")
-book14 = Book("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", "9780345391803")
-book15 = Book("A Game of Thrones", "George R.R. Martin", "9780553573404")
-book16 = Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", "9781408855652")
-book17 = Book("Gone with the Wind", "Margaret Mitchell", "9781451635621")
-book18 = Book("The Picture of Dorian Gray", "Oscar Wilde", "9780141442464")
-book19 = Book("Frankenstein", "Mary Shelley", "9780486282114")
-book20 = Book("The Count of Monte Cristo", "Alexandre Dumas", "9780140449266")
-books=[book1,book2,book3,book4,book5,book6,book7,book8,book9,book10,book11,book13,book13,book14,book15,book16,book17,book18,book19,book20]
-for book in books:
-    Mylib.add_book(book)
+with open('books.txt',encoding="utf-8") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        if len(row) == 3:
+            book = Book(row[0], row[1], row[2], randint(1,14))
+            Mylib.add_book(book)
+        elif len(row)>3:
+            for i in range(1,len(row)-3):
+                row[0]= row[0]+row[i]
+            book = Book(row[0],row[-3], row[-2],randint(1,14))
+            Mylib.add_book(book)
+
 print("Chào mừng đến với thư viện của Đức Hùng!")
 time.sleep(1)
-print(f"Hiện tại bên mình đang có {len(Mylib.books)} quyển sách.")
+print(f"Hiện tại bên mình đang có {len(Mylib.books)} đầu sách.")
 time.sleep(1)
 while True:
     print("Bạn muốn làm gì nào?")
@@ -189,10 +164,15 @@ while True:
             Mylib.search_book(book_name)
 
     if n==5:
-        book = Book(input("Name: "), input("Author: "), input("ibs number: "))
-        Mylib.add_book(book)
-        print(f"Đã thêm sách {book.name} của {book.author} có số ibs là {book.ibsn}")
-        print("Nhập 1 để tiếp tục sử dụng, nhập phím khác để dừng lại")
+        book = Book(input("Name: ").title(), input("Author: ").title(), input("ibs number: ").title())
+        if book not in Mylib.books:
+            Mylib.add_book(book)
+            with open("books.txt", 'a', encoding="utf-8") as f:
+                f.write(f"\n{book.title}, {book.author}, {book.ibsn}")
+            print(f"Đã thêm sách {book.title} của {book.author} có số ibs là {book.ibsn}")
+        else:
+            print(f"Sách {book.title} của {book.author} đã có trong thư viện.")
+        time.sleep(3)
 
     if n==6:
         book_name = input("Nhập vào tên sách: ")
@@ -202,6 +182,7 @@ while True:
             if book_name.lower() == book.title.lower():
                 Mylib.remove_book(book)
                 dem = 0
+                print(f"Đã xóa sách {book.title}")
         if dem == 1:
             print("Không có sách với tiêu đề như vây.")
             print("Tìm kiếm sách có khả năng..")
