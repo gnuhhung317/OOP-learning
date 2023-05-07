@@ -174,7 +174,7 @@ while count<6:
         print(f"Tài khoản hoặc mật khẩu không chính xác({count}/5)")
         count+=1
 #nhập vào lựa chọn
-while True:
+while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
     print("Bạn muốn làm gì nào?")
     time.sleep(1)
     print("1. tìm thông tin sách")
@@ -359,6 +359,9 @@ with open("checkout_history.txt","a",encoding="utf-8") as f:
         f.write(i+"\n") #ghi tiếp lịch sử mượn trả phiên làm việc
 
 
-"""các biến chính
+"""các biến chính:
 histo: danh sách chứa lịch sử mượn trả các phiên làm việc chứa
-history: danh sách chưa"""
+history: danh sách chưa lịch sử mượn trả phiên làm việc hiện tại
+user_data: từ điển chứa từ khóa là username với định nghĩa là password sau khi hash
+admin_data: Tương tự user_data nhưng của admin
+admin và user khởi tạo và gán giá trị True khi đăng nhập bằng phương thức của 2 class"""
