@@ -1,98 +1,69 @@
-To Kill a Mockingbird, Harper Lee, 9780061120084,11
-1984, George Orwell, 9780451524935,2
-The Great Gatsby, F. Scott Fitzgerald, 9780743273565,12
-One Hundred Years of Solitude, Gabriel Garcia Marquez, 9780060883287,3
-Moby-Dick, Herman Melville, 9780142437247,4
-The Catcher in the Rye, J.D. Salinger, 9780316769488,5
-The Adventures of Huckleberry Finn, Mark Twain, 9780486280615,13
-Pride and Prejudice, Jane Austen, 9780141439518,13
-Brave New World, Aldous Huxley, 9780060850524,1
-Animal Farm, George Orwell, 9780141036137,13
-The Lord of the Rings, J.R.R. Tolkien, 9780544003415,3
-The Hobbit, J.R.R. Tolkien, 9780547928227,14
-The Chronicles of Narnia, C.S. Lewis, 9780007100221,3
-The Hitchhiker's Guide to the Galaxy, Douglas Adams, 9780345391803,6
-A Game of Thrones, George R.R. Martin, 9780553573404,1
-Harry Potter and the Philosopher's Stone, J.K. Rowling, 9781408855652,1
-Gone with the Wind, Margaret Mitchell, 9781451635621,12
-The Picture of Dorian Gray, Oscar Wilde, 9780141442464,9
-Frankenstein, Mary Shelley, 9780486282114,12
-The Count of Monte Cristo, Alexandre Dumas, 9780140449266,12
-To the Lighthouse, Virginia Woolf, 9780156907392,5
-A Clockwork Orange, Anthony Burgess, 9780393312836,12
-Catch-22, Joseph Heller, 9780684833392,2
-Slaughterhouse-Five, Kurt Vonnegut, 9780385333849,11
-The Sun Also Rises, Ernest Hemingway, 9780743297332,6
-The Grapes of Wrath, John Steinbeck, 9780143039433,5
-The Bell Jar, Sylvia Plath, 9780061148514,2
-The Color Purple, Alice Walker, 9780156031820,10
-Beloved, Toni Morrison, 9781400033416,2
-The Handmaid's Tale, Margaret Atwood, 9780385490818,14
-The Road, Cormac McCarthy, 9780307387899,10
-Invisible Man, Ralph Ellison, 9780679732761,13
-Native Son, Richard Wright, 9780060837563,14
-Their Eyes Were Watching God, Zora Neale Hurston, 9780061120060,1
-The Picture of Dorian Gray, Oscar Wilde, 9780199535989,13
-Dracula, Bram Stoker, 9780486454016,7
-Pride and Prejudice, Jane Austen, 9780486284736,2
-Jane Eyre, Charlotte Bronte, 9780141441146,13
-Wuthering Heights, Emily Bronte, 9780141439556,9
-The Scarlet Letter, Nathaniel Hawthorne, 9780451531353,13
-The Adventures of Sherlock Holmes, Arthur Conan Doyle, 9780199536955,14
-Treasure Island, Robert Louis Stevenson, 9781853261039,2
-The Adventures of Tom Sawyer, Mark Twain, 9780486400778,8
-Little Women, Louisa May Alcott, 9780140367123,8
-The Secret Garden, Frances Hodgson Burnett, 9780486275536,1
-The Wind in the Willows, Kenneth Grahame, 9780689831429,14
-The Jungle Book, Rudyard Kipling, 9780486415574,14
-Alice's Adventures in Wonderland, Lewis Carroll, 9780486284729,9
-Through the Looking-Glass, Lewis Carroll, 9780486420943,3
-The Handmaid's Tale, Margaret Atwood, 9780385490818,13
-To the Lighthouse, Virginia Woolf, 9780156907392,11
-Heart of Darkness, Joseph Conrad, 9780141441672,6
-The Sun Also Rises, Ernest Hemingway, 9780684800714,12
-A Farewell to Arms, Ernest Hemingway, 9780684801469,10
-The Old Man and the Sea, Ernest Hemingway, 9780684801223,3
-Beloved, Toni Morrison, 9781400033416,8
-Invisible Man, Ralph Ellison, 9780679732761,14
-The Color Purple, Alice Walker, 9780156031820,8
-Their Eyes Were Watching God, Zora Neale Hurston, 9780061120060,9
-Slaughterhouse-Five, Kurt Vonnegut, 9780440180296,10
-Catch-22, Joseph Heller, 9781451626650,3
-The Bell Jar, Sylvia Plath, 9780060837020,6
-The Sound and the Fury, William Faulkner, 9780393926462,7
-A Streetcar Named Desire, Tennessee Williams, 9780822210894,4
-The Picture of Dorian Gray, Oscar Wilde, 9780486278077,7
-Les Misérables, Victor Hugo, 9780140444308,9
-Crime and Punishment, Fyodor Dostoyevsky, 9780393956230,13
-War and Peace, Leo Tolstoy, 9780670034692,12
-Anna Karenina, Leo Tolstoy, 9780143035008,5
-Số Đỏ, Vũ Trọng Phụng, 9786042045348,11
-Dế Mèn Phiêu Lưu Ký, Tô Hoài, 9786042040251,7
-Chi Pheo, Nam Cao, 9786042044730,8
-Tắt Đèn, Ngô Tất Tố, 9786042060846,12
-Chí Phèo, Thạch Lam, 9786042041746,9
-Nỗi Buồn Chiến Tranh, Bảo Ninh, 9786045020197,1
-Tôi Thấy Hoa Vàng Trên Cỏ Xanh, Nguyễn Nhật Ánh, 9786042026781,3
-Đất Rừng Phương Nam, Doãn Giỏi, 9786042060624,7
-Bến Đò Lịch Sử, Nguyễn Nhật Ánh, 9786042095251,6
-Dòng Sông Không Trở Lại, Phan Nhật Nam, 9786042064653,7
-Truyện Kiều, Nguyễn Du, 9786042063663,2
-Đời Cô Lựu, Vũ Trọng Phụng, 9786042042798,11
-Nhật Ký Trong Tù, Hồ Chí Minh, 9786045002315,12
-Truyện Ngắn, Những Lời Ru Bé, Nhiều Tác Giả,2
-Đi Tìm Lẽ Sống, Phạm Văn Đồng, 9786045047117,14
-Báo Chí Và Cách Mạng, Tạ Chí Đại Trường, 9786045001424,8
-Tắt Đèn và Những Chuyện Khác, Ngô Tất Tố, 9786042057440,6
-Vượt Sóng và Nỗi Đau, Bào Ninh, 9786045020432,2
-Bến Nước Lạ, Nguyễn Ngọc Tư, 9786042095527,6
-Người Văn Chương, Nguyễn Khải, 9786042095398,5
-Mắt Biếc, Nguyễn Nhật Ánh, 9786042055637,7
-Hồn Trương Ba Da Hàng Thịt, Vũ Trọng Phụng,8
-Mười Năm Một Nụ Cười, Trần Lê Thanh Nhàn, 9786042109187,2
-Sóng, Nguyễn Phong Việt, 9786042092229,2
-Kính Vạn Hoa, Trương Vĩnh Ký, 9786042041401,3
-Lễ Vượt Thác, Nguyễn Huy Thiệp, 9786042082015,9
-Mẹ Và Những Người Đàn Ông Khốn Khổ, Nguyễn Ngọc Tư, 9786042062512,14
-Chuyện Xứ Lang Biang, Tô Hoài, 9786042044495,4
-Giai Nhân Và Ác Quỷ, Nguyễn Công Hoan, 9786042066909,3
+To Kill a Mockingbird, Harper Lee, 9780061120084, 11, 0
+1984, George Orwell, 9780451524935, 2, 0
+The Great Gatsby, F. Scott Fitzgerald, 9780743273565, 12, 0
+One Hundred Years of Solitude, Gabriel Garcia Marquez, 9780060883287, 3, 0
+Moby-Dick, Herman Melville, 9780142437247, 4, 0
+The Catcher in the Rye, J.D. Salinger, 9780316769488, 5, 0
+The Adventures of Huckleberry Finn, Mark Twain, 9780486280615, 13, 0
+Pride and Prejudice, Jane Austen, 9780141439518, 13, 0
+Brave New World, Aldous Huxley, 9780060850524, 1, 0
+Animal Farm, George Orwell, 9780141036137, 13, 0
+The Lord of the Rings, J.R.R. Tolkien, 9780544003415, 3, 0
+The Hobbit, J.R.R. Tolkien, 9780547928227, 14, 0
+The Chronicles of Narnia, C.S. Lewis, 9780007100221, 3, 0
+The Hitchhiker's Guide to the Galaxy, Douglas Adams, 9780345391803, 6, 0
+A Game of Thrones, George R.R. Martin, 9780553573404, 1, 0
+Harry Potter and the Philosopher's Stone, J.K. Rowling, 9781408855652, 1, 0
+Gone with the Wind, Margaret Mitchell, 9781451635621, 12, 0
+The Picture of Dorian Gray, Oscar Wilde, 9780141442464, 9, 0
+Frankenstein, Mary Shelley, 9780486282114, 12, 0
+The Count of Monte Cristo, Alexandre Dumas, 9780140449266, 12, 0
+To the Lighthouse, Virginia Woolf, 9780156907392, 5, 0
+A Clockwork Orange, Anthony Burgess, 9780393312836, 12, 0
+Catch-22, Joseph Heller, 9780684833392, 2, 0
+Slaughterhouse-Five, Kurt Vonnegut, 9780385333849, 11, 0
+The Sun Also Rises, Ernest Hemingway, 9780743297332, 6, 0
+The Grapes of Wrath, John Steinbeck, 9780143039433, 5, 0
+The Bell Jar, Sylvia Plath, 9780061148514, 2, 0
+The Color Purple, Alice Walker, 9780156031820, 10, 0
+Beloved, Toni Morrison, 9781400033416, 2, 0
+The Handmaid's Tale, Margaret Atwood, 9780385490818, 14, 0
+The Road, Cormac McCarthy, 9780307387899, 10, 0
+Invisible Man, Ralph Ellison, 9780679732761, 13, 0
+Native Son, Richard Wright, 9780060837563, 14, 0
+Their Eyes Were Watching God, Zora Neale Hurston, 9780061120060, 1, 0
+The Picture of Dorian Gray, Oscar Wilde, 9780199535989, 13, 0
+Dracula, Bram Stoker, 9780486454016, 7, 0
+Pride and Prejudice, Jane Austen, 9780486284736, 2, 0
+Jane Eyre, Charlotte Bronte, 9780141441146, 13, 0
+Wuthering Heights, Emily Bronte, 9780141439556, 9, 0
+The Scarlet Letter, Nathaniel Hawthorne, 9780451531353, 13, 0
+The Adventures of Sherlock Holmes, Arthur Conan Doyle, 9780199536955, 14, 0
+Treasure Island, Robert Louis Stevenson, 9781853261039, 2, 0
+The Adventures of Tom Sawyer, Mark Twain, 9780486400778, 8, 0
+Little Women, Louisa May Alcott, 9780140367123, 8, 0
+The Secret Garden, Frances Hodgson Burnett, 9780486275536, 1, 0
+The Wind in the Willows, Kenneth Grahame, 9780689831429, 14, 0
+The Jungle Book, Rudyard Kipling, 9780486415574, 14, 0
+Alice's Adventures in Wonderland, Lewis Carroll, 9780486284729, 9, 0
+Through the Looking-Glass, Lewis Carroll, 9780486420943, 3, 0
+The Handmaid's Tale, Margaret Atwood, 9780385490818, 13, 0
+To the Lighthouse, Virginia Woolf, 9780156907392, 11, 0
+Heart of Darkness, Joseph Conrad, 9780141441672, 6, 0
+The Sun Also Rises, Ernest Hemingway, 9780684800714, 12, 0
+A Farewell to Arms, Ernest Hemingway, 9780684801469, 10, 0
+The Old Man and the Sea, Ernest Hemingway, 9780684801223, 3, 0
+Beloved, Toni Morrison, 9781400033416, 8, 0
+Invisible Man, Ralph Ellison, 9780679732761, 14, 0
+The Color Purple, Alice Walker, 9780156031820, 8, 0
+Their Eyes Were Watching God, Zora Neale Hurston, 9780061120060, 9, 0
+Slaughterhouse-Five, Kurt Vonnegut, 9780440180296, 10, 0
+Catch-22, Joseph Heller, 9781451626650, 3, 0
+The Bell Jar, Sylvia Plath, 9780060837020, 6, 0
+The Sound and the Fury, William Faulkner, 9780393926462, 7, 0
+A Streetcar Named Desire, Tennessee Williams, 9780822210894, 4, 0
+The Picture of Dorian Gray, Oscar Wilde, 9780486278077, 7, 0
+Les Mis�rables, Victor Hugo, 9780140444308, 9, 0
+Crime and Punishment, Fyodor Dostoyevsky, 9780393956230, 13, 0
+War and Peace, Leo Tolstoy, 9780670034692, 12, 0
+Anna Karenina, Leo Tolstoy, 9780143035008, 5, 0
