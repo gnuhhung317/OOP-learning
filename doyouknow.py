@@ -24,7 +24,7 @@ class Book:
             print(f"{self.title} của bạn đây!")
             self.checkoutbook+=1 #tăng số sách self bị mượn thêm 1
             print("Lịch sử mượn trả sẽ được cập nhật sau phiên làm việc")
-            history.append(f"{time.ctime(time.time())} {username} đã mượn {book.title}\n") #lưu lịch sử mượn vào list để thêm vào lưu vào csdl sau phiên làm việc
+            history.append(f"{time.ctime(time.time())} {username} đã mượn {book.title}") #lưu lịch sử mượn vào list để thêm vào lưu vào csdl sau phiên làm việc
         else:
             print(f"{self.title} đã bị mượn hết!")
     #permit user return book
@@ -62,7 +62,7 @@ class library:
     def search_book1(self,keyword=str):
         matched_book = [book for book in self.books if keyword.lower() in book.author.lower()]
         if len(matched_book)==0:
-            print("Không tìm thấy sách.")
+            print("Không tìm thấy tác giả.")
         else:
             print("Tìm được:")
             i=1
@@ -113,6 +113,7 @@ class adminlogin(Login):
 #make name book in good form
 def nice(book_name):
     return " ".join(book_name.split())
+
 #hash the password
 def get_sha256_hash(data):
     hash_object = hashlib.sha256(data.encode())
@@ -157,6 +158,8 @@ time.sleep(1)
 #Đăng nhập hệ thống
 print("Mời đăng nhập. ")
 count=1
+admin=False
+user=False
 while count<6:
     username=input("username: ")
     password=input("password: ")
@@ -209,13 +212,13 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
     if n==1:
         #find the book infor
         print("Nhập 1 để tìm theo tiêu đề sách, 2 để tìm theo tên tác giả: ")
-        a=int(input())
+        a=input()
         for i in range(1,6):
             if a!="1" and a!="2":
                 a=input("Đầu vào không hợp lệ, mời nhập lại")
             else:
                 break
-        if a==1:
+        if a=="1":
             book_name = input("Nhập vào tên sách: ")
             book_name = nice(book_name)
             dem = 1
@@ -227,7 +230,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
                 print("Không có sách với tiêu đề như vây.")
                 print("Tìm kiếm sách có khả năng..")
                 Mylib.search_book(book_name)
-        if a==2:
+        if a=="2":
             book_author=input("Nhập vào tên tác giả: ")
             book_author=nice(book_author)
             dem=1
@@ -235,9 +238,16 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
                 if book_author.lower()== book.author.lower():
                     book.infor()
                     dem=0
-            if dem>0:
-                print("Không có tác giả nào tên như thế á!")
-
+            if dem == 1:
+                print("Không tìm thấy sách của tác giả như vây.")
+                print("Tìm kiếm tên tác giả có khả năng..")
+                Mylib.search_book1(book_author)
+        #về menu chính hoặc dừng sử dụng
+        check= input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+           break
     #check_available
     if n==2:
         book_name = input("Nhập vào tên sách: ")
@@ -252,7 +262,12 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             print("Không có sách với tiêu đề như vây.")
             print("Tìm kiếm sách có khả năng..")
             Mylib.search_book(book_name)
-
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
     #check out book
     if n==3:
         book_name = input("Nhập vào tên sách: ")
@@ -267,7 +282,12 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             print("Không có sách với tiêu đề như vây.")
             print("Tìm kiếm sách có khả năng..")
             Mylib.search_book(book_name)
-
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
     #return book
     if n==4:
         book_name = input("Nhập vào tên sách: ")
@@ -281,6 +301,12 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             print("Không có sách với tiêu đề như vây.")
             print("Tìm kiếm sách có khả năng..")
             Mylib.search_book(book_name)
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
 
     #add book
     if n==5:
@@ -296,6 +322,12 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
 
         else:
             print("Cần quyền quản trị viên để thêm sách")
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
     #delete book
     if n==6:
         if admin:
@@ -314,6 +346,12 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
 
         else:
             print("Cần quyền quản trị viên")
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
     #seach book
     if n==7:
         a=input("Nhập 1 để tìm sách theo tên,2 để tìm sách theo tác giả: ")
@@ -324,28 +362,50 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             book_author=input("Nhập vào tên tác giả: ")
             Mylib.search_book1(book_author)
         else:
-            print("Nhập vào không hợp lệ, dừng tiến trình.")
+            print("Nhập vào không hợp lệ, về menu chính.")
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
 
     #show all books
     if n==8:
         print("Danh sách sách trong thư viện là: ")
         Mylib.display_book()
-        time.sleep(5)
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
     #show available books
     if n==9:
         print("Danh sách sách có sẵn là: ")
         Mylib.display_available_book()
-        time.sleep(5)
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
     #show checkouted history
     if n==10:
-            dem=0
-            for i in histo:
-                i=i.strip()
-                if len(i)>0:
-                    print(i)
-                    dem+=1
-            if dem==0:
-                print("Lịch sử trống")
+        dem=0
+        for i in histo:
+            i=i.strip()
+            if len(i)>0:
+                print(i)
+                dem+=1
+        if dem==0:
+            print("Lịch sử trống")
+        # về menu chính hoặc dừng sử dụng
+        check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        if check == "1":
+            continue
+        else:
+            break
     #stop using service
     if n==11:
         break

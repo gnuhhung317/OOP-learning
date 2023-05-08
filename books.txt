@@ -14,7 +14,7 @@ The Chronicles of Narnia, C.S. Lewis, 9780007100221, 3, 0
 The Hitchhiker's Guide to the Galaxy, Douglas Adams, 9780345391803, 6, 0
 A Game of Thrones, George R.R. Martin, 9780553573404, 1, 0
 Harry Potter and the Philosopher's Stone, J.K. Rowling, 9781408855652, 1, 0
-Gone with the Wind, Margaret Mitchell, 9781451635621, 12, 0
+Gone with the Wind, Margaret Mitchell, 9781451635621, 12, 1
 The Picture of Dorian Gray, Oscar Wilde, 9780141442464, 9, 0
 Frankenstein, Mary Shelley, 9780486282114, 12, 0
 The Count of Monte Cristo, Alexandre Dumas, 9780140449266, 12, 0
