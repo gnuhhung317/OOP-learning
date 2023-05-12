@@ -51,7 +51,7 @@ The Handmaid's Tale, Margaret Atwood, 9780385490818, 13, 0
 To the Lighthouse, Virginia Woolf, 9780156907392, 11, 0
 Heart of Darkness, Joseph Conrad, 9780141441672, 6, 0
 The Sun Also Rises, Ernest Hemingway, 9780684800714, 12, 0
-A Farewell to Arms, Ernest Hemingway, 9780684801469, 10, 0
+Farewell to Arms, Ernest Hemingway, 9780684801469, 10, 0
 The Old Man and the Sea, Ernest Hemingway, 9780684801223, 3, 0
 Beloved, Toni Morrison, 9781400033416, 8, 0
 Invisible Man, Ralph Ellison, 9780679732761, 14, 0
@@ -63,7 +63,3 @@ The Bell Jar, Sylvia Plath, 9780060837020, 6, 0
 The Sound and the Fury, William Faulkner, 9780393926462, 7, 0
 A Streetcar Named Desire, Tennessee Williams, 9780822210894, 4, 0
 The Picture of Dorian Gray, Oscar Wilde, 9780486278077, 7, 0
-Les Mis�rables, Victor Hugo, 9780140444308, 9, 0
-Crime and Punishment, Fyodor Dostoyevsky, 9780393956230, 13, 0
-War and Peace, Leo Tolstoy, 9780670034692, 12, 0
-Anna Karenina, Leo Tolstoy, 9780143035008, 5, 0

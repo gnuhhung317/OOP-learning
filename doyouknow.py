@@ -1,5 +1,4 @@
 import time
-import csv
 import hashlib
 class Book:
     #initial book object
@@ -45,11 +44,12 @@ class library:
         self.books.append(book)
     #remove book from lib
     def remove_book(self,book):
-            self.books.remove(book)
+        self.books.remove(book)
+        print(f"Đã xóa sách {book.title}")
     #find book from lib (find book by title)
     def search_book(self,keyword=str):
         matched_book = [book for book in self.books if keyword.lower() in book.title.lower()]
-        if len(matched_book)==0:
+        if not matched_book:
             print("Không tìm thấy sách.")
         else:
             print("Tìm được:")
@@ -118,6 +118,28 @@ def nice(book_name):
 def get_sha256_hash(data):
     hash_object = hashlib.sha256(data.encode())
     return hash_object.hexdigest()
+
+def working(book_name,a):
+    book_name = nice(book_name)
+    dem = 1
+    for book in Mylib.books:
+        if book_name.lower() == book.title.lower():
+            if a==2:
+                book.is_available()
+            elif a==1:
+                book.infor()
+            elif a==3:
+                book.check_out(history)
+            elif a==4:
+                book.return_book(history)
+            elif a==6:
+                Mylib.remove_book(book)
+            dem = 0
+    if dem == 1:
+        print("Không có sách với tiêu đề như vây.")
+        print("Tìm kiếm sách có khả năng..")
+        Mylib.search_book(book_name)
+
 Mylib=library()
 #tạo một từ điển chứa tài khoản và mật khẩu (sau khi đã hash) của người dùng từ file user.txt
 with open("user.txt","r") as f:
@@ -134,9 +156,12 @@ with open("admin.txt","r") as f:
         data[i]=data[i].split(", ")
     admin_data={admin: password for [admin,password] in data }
 #tạo một danh sách các đối tượng sách, sau đó thêm sách vào đối tượng Mylib
-with open('books.txt') as file:
-    reader = csv.reader(file)
-    for row in reader:
+with open('books.txt','r',encoding="utf-8") as file:
+    file=file.read()
+    file=file.split("\n")
+    for i in range(len(file)):
+        file[i]=file[i].split(", ")
+    for row in file:
         if len(row) == 5:
             book = Book(row[0].strip(), row[1].strip(), row[2].strip(), row[3].strip(),row[4].strip())
             Mylib.add_book(book)
@@ -160,6 +185,12 @@ print("Mời đăng nhập. ")
 count=1
 admin=False
 user=False
+"""các biến chính:
+histo: danh sách chứa lịch sử mượn trả các phiên làm việc chứa
+history: danh sách chưa lịch sử mượn trả phiên làm việc hiện tại
+user_data: từ điển chứa từ khóa là username với định nghĩa là password sau khi hash
+admin_data: Tương tự user_data nhưng của admin
+admin và user khởi tạo và gán giá trị True khi đăng nhập bằng phương thức của 2 class"""
 while count<6:
     username=input("username: ")
     password=input("password: ")
@@ -218,18 +249,11 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
                 a=input("Đầu vào không hợp lệ, mời nhập lại")
             else:
                 break
+
+
         if a=="1":
             book_name = input("Nhập vào tên sách: ")
-            book_name = nice(book_name)
-            dem = 1
-            for book in Mylib.books:
-                if book_name.lower() == book.title.lower():
-                    book.infor()
-                    dem = 0
-            if dem == 1:
-                print("Không có sách với tiêu đề như vây.")
-                print("Tìm kiếm sách có khả năng..")
-                Mylib.search_book(book_name)
+            working(book_name,n)
         if a=="2":
             book_author=input("Nhập vào tên tác giả: ")
             book_author=nice(book_author)
@@ -249,19 +273,10 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
         else:
            break
     #check_available
+
     if n==2:
         book_name = input("Nhập vào tên sách: ")
-        book_name = nice(book_name)
-        dem = 1
-        for book in Mylib.books:
-            if book_name.lower() == book.title.lower():
-                book.is_available()
-                dem = 0
-        
-        if dem == 1:
-            print("Không có sách với tiêu đề như vây.")
-            print("Tìm kiếm sách có khả năng..")
-            Mylib.search_book(book_name)
+        working(book_name,n)
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
         if check == "1":
@@ -271,17 +286,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
     #check out book
     if n==3:
         book_name = input("Nhập vào tên sách: ")
-        book_name = nice(book_name)
-        dem = 1
-        for book in Mylib.books:
-            if book_name.lower() == book.title.lower():
-                book.check_out(history) #cho mượn sách và ghi vào danh sách history và ghi vào file checkout_history khi kết thúc phiên làm việc
-                dem=0
-                break
-        if dem == 1:
-            print("Không có sách với tiêu đề như vây.")
-            print("Tìm kiếm sách có khả năng..")
-            Mylib.search_book(book_name)
+        working(book_name,3)
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
         if check == "1":
@@ -291,16 +296,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
     #return book
     if n==4:
         book_name = input("Nhập vào tên sách: ")
-        book_name = nice(book_name)
-        dem = 1
-        for book in Mylib.books:
-            if book_name.lower() == book.title.lower():
-                book.return_book(history)   # nhận lại sách trả và ghi vào danh sách history và ghi vào file checkout_history khi kết thúc phiên làm việc
-                dem=0
-        if dem == 1:
-            print("Không có sách với tiêu đề như vây.")
-            print("Tìm kiếm sách có khả năng..")
-            Mylib.search_book(book_name)
+        working(book_name,n)
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
         if check == "1":
@@ -314,8 +310,6 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             book = Book(input("Name: ").title(), input("Author: ").title(), input("ibs number: ").title())
             if book not in Mylib.books:
                 Mylib.add_book(book)
-                with open("books.txt", 'a') as f:
-                    f.write(f"\n{book.title}, {book.author}, {book.ibsn}, {book.quantity}, {book.checkoutbook}")
                 print(f"Đã thêm sách {book.title} của {book.author} có số ibs là {book.ibsn}: {book.quantity}")
             else:
                 print(f"Sách {book.title} của {book.author} đã có trong thư viện.")
@@ -332,17 +326,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
     if n==6:
         if admin:
             book_name = input("Nhập vào tên sách: ")
-            book_name = nice(book_name)
-            dem = 1
-            for book in Mylib.books:
-                if book_name.lower() == book.title.lower():
-                    Mylib.remove_book(book)
-                    dem = 0
-                    print(f"Đã xóa sách {book.title}")
-            if dem == 1:
-                print("Không có sách với tiêu đề như vây.")
-                print("Tìm kiếm sách có khả năng..")
-                Mylib.search_book(book_name)
+            working(book_name,n)
 
         else:
             print("Cần quyền quản trị viên")
@@ -419,9 +403,4 @@ with open("checkout_history.txt","a",encoding="utf-8") as f:
         f.write(i+"\n") #ghi tiếp lịch sử mượn trả phiên làm việc
 
 
-"""các biến chính:
-histo: danh sách chứa lịch sử mượn trả các phiên làm việc chứa
-history: danh sách chưa lịch sử mượn trả phiên làm việc hiện tại
-user_data: từ điển chứa từ khóa là username với định nghĩa là password sau khi hash
-admin_data: Tương tự user_data nhưng của admin
-admin và user khởi tạo và gán giá trị True khi đăng nhập bằng phương thức của 2 class"""
+
