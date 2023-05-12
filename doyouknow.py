@@ -1,5 +1,7 @@
 import time
 import hashlib
+import os
+
 class Book:
     #initial book object
     def __init__(self,title,author,ibsn,quantity,checkoutbook):
@@ -99,8 +101,9 @@ class userlogin(Login): #Tạo class login cho người dùng
     def login(self):
         if self.user_data[self.username]==get_sha256_hash(self.password): #kiểm tra mật khẩu sau khi hash có giống trong từ điển dữ liệu người dúng không
             print("Người dùng đăng nhập thành công")
-            return 0
+            return True
         print("Tài khoản hoặc mật khẩu không chính xác!")
+        return False
 class adminlogin(Login):
     def __init__(self,username,password,admin_data):
         super().__init__(username,password)
@@ -108,8 +111,9 @@ class adminlogin(Login):
     def login(self):
         if self.admin_data[self.username]==get_sha256_hash(self.password):
             print("Quản trị viên đăng nhập thành công")
-            return 0
+            return True
         print("Tài khoản hoặc mật khẩu không chính xác!")
+        return False
 #make name book in good form
 def nice(book_name):
     return " ".join(book_name.split())
@@ -197,16 +201,21 @@ while count<6:
     userlog=userlogin(username,password,user_data)
     adminlog=adminlogin(username,password,admin_data)
     if username in user_data:
-        userlog.login()
+        if userlog.login()==False:
+            continue
         user=True
+        os.system('cls')
         break
     elif username in admin_data:
-        adminlog.login()
+        if adminlog.login()==False:#kiểm tra đăng nhập thành công không
+            continue
         admin=True
+        os.system('cls')
         break
     else:
         print(f"Tài khoản hoặc mật khẩu không chính xác({count}/5)")
         count+=1
+        os.system('cls')
 #nhập vào lựa chọn
 while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
     print("Bạn muốn làm gì nào?")
@@ -238,6 +247,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
     while n<1 or n>11:
         n = int(input(f"Lựa chọn không hợp lệ, mời nhập lại({dem}/5): "))
         dem+=1
+        os.system('cls')
         if dem==6:
             break
     if n==1:
@@ -249,11 +259,12 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
                 a=input("Đầu vào không hợp lệ, mời nhập lại")
             else:
                 break
-
+        os.system('cls')
 
         if a=="1":
             book_name = input("Nhập vào tên sách: ")
             working(book_name,n)
+
         if a=="2":
             book_author=input("Nhập vào tên tác giả: ")
             book_author=nice(book_author)
@@ -266,9 +277,11 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
                 print("Không tìm thấy sách của tác giả như vây.")
                 print("Tìm kiếm tên tác giả có khả năng..")
                 Mylib.search_book1(book_author)
+
         #về menu chính hoặc dừng sử dụng
         check= input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
         if check == "1":
+            os.system('cls')
             continue
         else:
            break
@@ -280,8 +293,10 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
         if check == "1":
+            os.system('cls')
             continue
         else:
+            os.system('cls')
             break
     #check out book
     if n==3:
@@ -290,8 +305,10 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
         if check == "1":
+            os.system('cls')
             continue
         else:
+            os.system('cls')
             break
     #return book
     if n==4:
@@ -299,6 +316,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
         working(book_name,n)
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        os.system('cls')
         if check == "1":
             continue
         else:
@@ -307,7 +325,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
     #add book
     if n==5:
         if admin:
-            book = Book(input("Name: ").title(), input("Author: ").title(), input("ibs number: ").title())
+            book = Book(input("Name: ").title(), input("Author: ").title(), input("ibs number: ").title(),input("quantity: ".title()),input("checkoutnumber: ").title())
             if book not in Mylib.books:
                 Mylib.add_book(book)
                 print(f"Đã thêm sách {book.title} của {book.author} có số ibs là {book.ibsn}: {book.quantity}")
@@ -318,6 +336,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             print("Cần quyền quản trị viên để thêm sách")
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        os.system('cls')
         if check == "1":
             continue
         else:
@@ -332,6 +351,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             print("Cần quyền quản trị viên")
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        os.system('cls')
         if check == "1":
             continue
         else:
@@ -349,6 +369,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             print("Nhập vào không hợp lệ, về menu chính.")
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        os.system('cls')
         if check == "1":
             continue
         else:
@@ -360,6 +381,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
         Mylib.display_book()
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        os.system('cls')
         if check == "1":
             continue
         else:
@@ -370,6 +392,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
         Mylib.display_available_book()
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        os.system('cls')
         if check == "1":
             continue
         else:
@@ -386,6 +409,7 @@ while count<6:## bỏ qua các chức năng khi đăng nhập 5 lần
             print("Lịch sử trống")
         # về menu chính hoặc dừng sử dụng
         check = input("Nhập 1 để tiếp tục sử dụng, nhập bất kì để thoát: ")
+        os.system('cls')
         if check == "1":
             continue
         else:
